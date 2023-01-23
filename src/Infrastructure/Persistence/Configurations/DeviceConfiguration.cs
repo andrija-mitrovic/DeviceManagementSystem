@@ -10,9 +10,9 @@ namespace Infrastructure.Persistence.Configurations
         {
             builder.Property(x => x.Name).HasMaxLength(255);
 
-            builder.HasOne(c => c.DeviceType)
-                   .WithMany(c => c.Devices)
-                   .OnDelete(DeleteBehavior.Restrict);
+            //builder.HasOne(c => c.DeviceType)
+            //       .WithMany(c => c.Devices)
+            //       .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

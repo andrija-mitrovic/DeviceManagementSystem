@@ -8,10 +8,10 @@ namespace Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<DevicePropertyValue> builder)
         {
-            builder.HasOne(e => e.Device)
-                   .WithMany(e => e.DevicePropertyValues)
-                   .HasForeignKey(e => e.DeviceId)
-                   .OnDelete(DeleteBehavior.Cascade);
+            //builder.HasOne(e => e.Device)
+            //       .WithMany(e => e.DevicePropertyValues)
+            //       .HasForeignKey(e => e.DeviceId)
+            //       .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

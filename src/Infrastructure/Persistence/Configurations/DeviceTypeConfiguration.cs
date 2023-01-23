@@ -9,11 +9,6 @@ namespace Infrastructure.Persistence.Configurations
         public void Configure(EntityTypeBuilder<DeviceType> builder)
         {
             builder.Property(x => x.Name).HasMaxLength(255);
-
-            builder.HasMany(e => e.Children)
-                   .WithOne(e => e.Parent)
-                   .HasForeignKey(e => e.ParentId)
-                   .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

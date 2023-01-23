@@ -9,6 +9,10 @@ namespace Infrastructure.Persistence.Configurations
         public void Configure(EntityTypeBuilder<DeviceTypeProperty> builder)
         {
             builder.Property(x => x.Name).HasMaxLength(255);
+
+            //builder.HasOne(c => c.DevicePropertyValue)
+            //       .WithOne(c => c.DeviceTypeProperty)
+            //       .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
