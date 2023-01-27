@@ -62,11 +62,11 @@ namespace Infrastructure.Persistence
             {
                 Name = "Racunar",
                 DeviceTypeProperties = new List<DeviceTypeProperty>()
-                    {
-                        new DeviceTypeProperty() { Name = "RAM memorija" },
-                        new DeviceTypeProperty() { Name = "Operativni sistem" },
-                        new DeviceTypeProperty() { Name = "Processor" }
-                    }
+                {
+                    new DeviceTypeProperty() { Name = "RAM memorija" },
+                    new DeviceTypeProperty() { Name = "Operativni sistem" },
+                    new DeviceTypeProperty() { Name = "Processor" }
+                }
             };
 
             return new List<DeviceType>
