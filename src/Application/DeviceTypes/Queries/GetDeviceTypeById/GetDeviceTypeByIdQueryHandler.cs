@@ -44,12 +44,6 @@ namespace Application.DeviceTypes.Queries.GetDeviceTypeById
                 throw new DeviceTypeNotFoundException(request.Id);
             }
 
-            if (deviceType.Children!.Any())
-            {
-                _logger.LogError(nameof(DeviceType) + " with id: {DeviceTypeId} has children.", request.Id);
-                throw new DeviceTypeWithChildrenBadRequestException(request.Id);
-            }
-
             return _mapper.Map<DeviceTypeDetailDTO>(deviceType);
         }
     }

@@ -21,10 +21,8 @@
 
   <ItemGroup>
     <Folder Include="Devices\Commands\DeleteDevice\" />
-    <Folder Include="Devices\Commands\UpdateDevice\" />
     <Folder Include="Devices\Queries\GetDeviceById\" />
     <Folder Include="Devices\Queries\GetDevices\" />
-    <Folder Include="DeviceTypes\Commands\UpdateDeviceType\" />
   </ItemGroup>
 
 </Project>
