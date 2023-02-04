@@ -1,6 +1,7 @@
 ﻿using API.Filters;
 using API.Services;
 using Application.Common.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API
 {
@@ -13,6 +14,7 @@ namespace API
             services.AddSwaggerGen();
             services.AddServices();
             services.AddHttpContextAccessor();
+            services.ConfigureApiBehaviorOptions();
         }
 
         private static void ConfigureController(this IServiceCollection services)
@@ -28,6 +30,16 @@ namespace API
         private static void AddServices(this IServiceCollection services)
         {
             services.AddSingleton<ICurrentUserService, CurrentUserService>();
+
+            services.AddScoped<ValidationFilterAttribute>();
+        }
+
+        private static void ConfigureApiBehaviorOptions(this IServiceCollection services)
+        {
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
         }
     }
 }
