@@ -16,15 +16,24 @@ namespace Infrastructure.Persistence.Repositories
         public async Task<Device?> GetDeviceDetailById(int id, bool disableTracking = true, CancellationToken cancellationToken = default)
         {
             var query = _dbContext.Devices.Include(x => x.DeviceType.Parent)
-                                           .ThenInclude(x => x.DeviceTypeProperties)
-                                           .ThenInclude(x => x.DevicePropertyValue)
-                                           .Include(x => x.DeviceType)
-                                           .ThenInclude(x => x.DeviceTypeProperties)
-                                           .ThenInclude(x => x.DevicePropertyValue)
-                                           .AsQueryable();
+                                          .ThenInclude(x => x.DeviceTypeProperties)
+                                          .ThenInclude(x => x.DevicePropertyValue)
+                                          .Include(x => x.DeviceType)
+                                          .ThenInclude(x => x.DeviceTypeProperties)
+                                          .ThenInclude(x => x.DevicePropertyValue)
+                                          .AsQueryable();
 
             if (disableTracking) query = query.AsNoTracking();
             
+            return await query.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+        }
+
+        public async Task<Device?> GetDeviceWithDevicePropertyValueById(int id, bool disableTracking = true, CancellationToken cancellationToken = default)
+        {
+            var query = _dbContext.Devices.Include(x => x.DevicePropertyValues).AsQueryable();
+
+            if (disableTracking) query = query.AsNoTracking();
+
             return await query.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
         }
     }

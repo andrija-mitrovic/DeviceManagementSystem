@@ -76,14 +76,19 @@ namespace Infrastructure.Persistence.Repositories
         {
             _dbContext.Set<T>().Update(entity);
         }
-        public void UpdateRange(List<T> entity)
+        public void UpdateRange(List<T> entities)
         {
-            _dbContext.Set<T>().UpdateRange(entity);
+            _dbContext.Set<T>().UpdateRange(entities);
         }
 
         public void Delete(T entity)
         {
             _dbContext.Set<T>().Remove(entity);
+        }
+
+        public void DeleteRange(List<T> entities)
+        {
+            _dbContext.Set<T>().RemoveRange(entities);
         }
     }
 }
