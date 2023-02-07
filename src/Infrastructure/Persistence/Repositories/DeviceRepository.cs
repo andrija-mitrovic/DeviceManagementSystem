@@ -1,4 +1,5 @@
-﻿using Application.Common.Interfaces;
+﻿using Application.Common.Helpers;
+using Application.Common.Interfaces;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -35,6 +36,20 @@ namespace Infrastructure.Persistence.Repositories
             if (disableTracking) query = query.AsNoTracking();
 
             return await query.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+        }
+
+        public async Task<PagedList<Device>> GetDevicesByParametersAsync(DeviceParameters? deviceParameters, bool disableTracking = true, CancellationToken cancellationToken = default)
+        {
+            var query = _dbContext.Devices.Include(x => x.DeviceType)
+                                          .ThenInclude(x => x.Parent)
+                                          .SearchDeviceByParameters(deviceParameters)
+                                          .AsQueryable();
+
+            if (disableTracking) query = query.AsNoTracking();
+
+            var devices = await query.ToListAsync(cancellationToken);
+
+            return PagedList<Device>.ToPagedList(devices, deviceParameters!.PageNumber, deviceParameters.PageSize);
         }
     }
 }

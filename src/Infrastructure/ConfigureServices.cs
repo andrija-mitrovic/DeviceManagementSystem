@@ -4,10 +4,9 @@ using Infrastructure.Persistence.Repositories;
 using Infrastructure.Persistence;
 using Infrastructure.Services;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ConfigureServices
     {
