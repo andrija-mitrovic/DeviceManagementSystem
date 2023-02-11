@@ -1,10 +1,9 @@
 ﻿using Application.Common.Behaviours;
 using FluentValidation;
 using MediatR;
-using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace Application
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ConfigureServices
     {
