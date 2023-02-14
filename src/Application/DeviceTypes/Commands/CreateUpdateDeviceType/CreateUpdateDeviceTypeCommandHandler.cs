@@ -9,20 +9,17 @@ namespace Application.DeviceTypes.Commands.CreateUpdateDeviceType
     internal sealed class CreateUpdateDeviceTypeCommandHandler : IRequestHandler<CreateUpdateDeviceTypeCommand, int>
     {
         private readonly IDeviceTypeRepository _deviceTypeRepository;
-        private readonly IDeviceTypePropertyRepository _deviceTypePropertyRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly ILogger<CreateUpdateDeviceTypeCommandHandler> _logger;
 
         public CreateUpdateDeviceTypeCommandHandler(
             IDeviceTypeRepository deviceTypeRepository, 
-            IDeviceTypePropertyRepository deviceTypePropertyRepository, 
             IUnitOfWork unitOfWork, 
             IMapper mapper, 
             ILogger<CreateUpdateDeviceTypeCommandHandler> logger)
         {
             _deviceTypeRepository = deviceTypeRepository;
-            _deviceTypePropertyRepository = deviceTypePropertyRepository;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _logger = logger;
