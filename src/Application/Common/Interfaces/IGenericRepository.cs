@@ -23,5 +23,6 @@ namespace Application.Common.Interfaces
         void Update(T entity);
         void UpdateRange(List<T> entities);
         void Delete(T entity);
+        void DeleteRange(List<T> entities);
     }
 }
