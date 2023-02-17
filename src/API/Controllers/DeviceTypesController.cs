@@ -1,5 +1,6 @@
-﻿using Application.Common.DTOs;
-using Application.DeviceTypes.Commands.CreateDeviceType;
+﻿using API.Filters;
+using Application.Common.DTOs;
+using Application.DeviceTypes.Commands.CreateUpdateDeviceType;
 using Application.DeviceTypes.Commands.DeleteDeviceType;
 using Application.DeviceTypes.Queries.GetDeviceTypeById;
 using Application.DeviceTypes.Queries.GetDeviceTypes;
@@ -22,7 +23,8 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> CreateProduct(CreateDeviceTypeCommand command, CancellationToken cancellationToken)
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public async Task<ActionResult<int>> CreateProduct(CreateUpdateDeviceTypeCommand command, CancellationToken cancellationToken)
         {
             return await Mediator.Send(command, cancellationToken);
         }
