@@ -3,7 +3,7 @@ using API.Services;
 using Application.Common.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ConfigureServices
     {

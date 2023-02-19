@@ -1,6 +1,3 @@
-using API;
-using Application;
-using Infrastructure;
 using Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
