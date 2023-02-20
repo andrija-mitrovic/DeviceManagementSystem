@@ -20,9 +20,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Devices\Commands\DeleteDevice\" />
-    <Folder Include="Devices\Queries\GetDeviceById\" />
-    <Folder Include="Devices\Queries\GetDevices\" />
+  	 <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+  	 	<_Parameter1>Application.IntegrationTests</_Parameter1>
+  	 </AssemblyAttribute>
+  	 <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+  	 	<_Parameter1>Application.UnitTests</_Parameter1>
+  	 </AssemblyAttribute>
+  	 <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+  	 	<_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
+  	 </AssemblyAttribute>
   </ItemGroup>
 
 </Project>
